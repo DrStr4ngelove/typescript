@@ -49,3 +49,55 @@ let cars = [
     { make: "Ford", model: "Fusion", year: 2019 },
     { make: "Chevy", model: "Malibu", year: 2018 },
 ];
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return [r, g, b];
+}
+const color1 = getRandomColor();
+console.log("🚀 ~ color1:", color1);
+const color2 = getRandomColor();
+console.log("🚀 ~ color2:", color2);
+const someUser1 = {
+    name: "John",
+    age: 30,
+};
+function formatUser(user) {
+    console.log(`🚀 ~ Name: ${user.name}, Age: ${user.age}`);
+}
+formatUser(someUser1);
+// UNION TYPES
+// ==============================
+let someId;
+someId = 1;
+someId = "killer bees";
+let email;
+email = "someEmail@eamil.com";
+email = null;
+let currentStatus;
+currentStatus = "success";
+currentStatus = "error";
+currentStatus = "pending";
+// union type pitfall
+function swapIdType(id) {
+    // can only use props and methods common to both string and number types
+    console.log(id.toUpperCase()); // need to check type of id before using
+}
+function swapIdTypeWithGuard(id) {
+    if (typeof id === "string") {
+        console.log(id.toUpperCase());
+    }
+    else {
+        console.log(id.toFixed());
+    }
+}
+// TODO - fix this
+function logDetails(value) {
+    if (value.type == "admin") {
+        console.log(value.role);
+    }
+    if (value.type == "person") {
+        console.log(value.age);
+    }
+}
